@@ -1,0 +1,1144 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grupo Giar — Energia Solar & Climatização</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #1a2e6e;
+      --navy-dark: #0f1c47;
+      --navy-light: #2a3f8f;
+      --blue: #3b82f6;
+      --ice: #e8f4fd;
+      --ice-mid: #c8e6f8;
+      --white: #ffffff;
+      --gray: #6b7280;
+      --light: #f8fafc;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: #1e293b;
+      background: var(--white);
+      overflow-x: hidden;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(26, 46, 110, 0.97);
+      backdrop-filter: blur(10px);
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 70px;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.2);
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .nav-logo img {
+      height: 44px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: rgba(255,255,255,0.85);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--ice); }
+
+    .nav-cta {
+      background: #22c55e;
+      color: #fff;
+      font-weight: 600;
+      font-size: 0.88rem;
+      padding: 0.55rem 1.3rem;
+      border-radius: 6px;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: background 0.2s, transform 0.1s;
+    }
+    .nav-cta:hover { background: #16a34a; transform: translateY(-1px); }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 50%, var(--navy-light) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 100px 2rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+
+    .hero-content { position: relative; z-index: 1; max-width: 800px; }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: var(--ice);
+      font-size: 0.82rem;
+      font-weight: 500;
+      padding: 0.4rem 1rem;
+      border-radius: 50px;
+      margin-bottom: 1.5rem;
+      letter-spacing: 0.5px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.2rem, 6vw, 4rem);
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1.15;
+      margin-bottom: 1.2rem;
+      letter-spacing: -0.5px;
+    }
+
+    .hero h1 span { color: var(--ice-mid); }
+
+    .hero p {
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      color: rgba(255,255,255,0.8);
+      line-height: 1.7;
+      margin-bottom: 2.5rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: #22c55e;
+      color: #fff;
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 0.9rem 2rem;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all 0.2s;
+      box-shadow: 0 4px 20px rgba(34,197,94,0.35);
+    }
+    .btn-primary:hover { background: #16a34a; transform: translateY(-2px); box-shadow: 0 6px 25px rgba(34,197,94,0.45); }
+
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: transparent;
+      color: var(--white);
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 0.9rem 2rem;
+      border-radius: 8px;
+      border: 2px solid rgba(255,255,255,0.4);
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .btn-outline:hover { border-color: rgba(255,255,255,0.8); background: rgba(255,255,255,0.08); }
+
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      margin-top: 4rem;
+      flex-wrap: wrap;
+    }
+
+    .stat { text-align: center; }
+    .stat-num { font-size: 2rem; font-weight: 800; color: var(--white); }
+    .stat-label { font-size: 0.82rem; color: rgba(255,255,255,0.6); margin-top: 0.2rem; text-transform: uppercase; letter-spacing: 1px; }
+
+    /* SECTION BASE */
+    section { padding: 5rem 2rem; }
+
+    .container { max-width: 1100px; margin: 0 auto; }
+
+    .section-tag {
+      display: inline-block;
+      background: var(--ice);
+      color: var(--navy);
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 0.35rem 1rem;
+      border-radius: 50px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .section-title {
+      font-size: clamp(1.7rem, 3.5vw, 2.5rem);
+      font-weight: 800;
+      color: var(--navy-dark);
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+
+    .section-sub {
+      color: var(--gray);
+      font-size: 1.05rem;
+      line-height: 1.7;
+      max-width: 580px;
+      margin-bottom: 3rem;
+    }
+
+    /* DIFERENCIAIS */
+    .diferenciais { background: var(--light); }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: var(--white);
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 1.8rem 1.5rem;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .card:hover { box-shadow: 0 8px 30px rgba(26,46,110,0.1); transform: translateY(-4px); }
+
+    .card-icon {
+      width: 52px; height: 52px;
+      background: var(--ice);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .card h3 { font-size: 1.05rem; font-weight: 700; color: var(--navy-dark); margin-bottom: 0.5rem; }
+    .card p { font-size: 0.88rem; color: var(--gray); line-height: 1.6; }
+
+    /* SERVIÇOS */
+    .servicos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .servico-card {
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .servico-card:hover { transform: translateY(-6px); box-shadow: 0 12px 40px rgba(26,46,110,0.15); }
+
+    .servico-img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+
+    .servico-body {
+      padding: 1.5rem;
+      background: var(--white);
+    }
+
+    .servico-tag {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--blue);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 0.5rem;
+    }
+
+    .servico-body h3 { font-size: 1.15rem; font-weight: 700; color: var(--navy-dark); margin-bottom: 0.5rem; }
+    .servico-body p { font-size: 0.88rem; color: var(--gray); line-height: 1.6; }
+
+    /* GALERIA */
+    .galeria { background: var(--navy-dark); }
+    .galeria .section-title { color: var(--white); }
+    .galeria .section-sub { color: rgba(255,255,255,0.65); }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+
+    .gallery-grid .main-img {
+      grid-column: 1 / -1;
+    }
+
+    .gallery-img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+      border-radius: 12px;
+      transition: transform 0.3s, box-shadow 0.3s;
+      cursor: pointer;
+    }
+
+    .gallery-img.tall { height: 340px; }
+
+    .gallery-img:hover { transform: scale(1.02); box-shadow: 0 8px 30px rgba(0,0,0,0.4); }
+
+    /* BTUS */
+    .btus { background: var(--ice); }
+
+    .btus-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .btu-card {
+      background: var(--white);
+      border: 2px solid var(--ice-mid);
+      border-radius: 12px;
+      padding: 1.5rem 1rem;
+      text-align: center;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .btu-card:hover { border-color: var(--navy); box-shadow: 0 4px 15px rgba(26,46,110,0.1); }
+
+    .btu-num { font-size: 1.4rem; font-weight: 800; color: var(--navy); }
+    .btu-label { font-size: 0.78rem; color: var(--gray); margin-top: 0.3rem; }
+
+    /* REVIEWS */
+    .reviews { background: var(--white); }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .review-card {
+      background: var(--light);
+      border: 1px solid #e2e8f0;
+      border-radius: 14px;
+      padding: 1.5rem;
+      transition: box-shadow 0.2s;
+    }
+    .review-card:hover { box-shadow: 0 6px 25px rgba(26,46,110,0.08); }
+
+    .stars { color: #f59e0b; font-size: 1rem; margin-bottom: 0.8rem; }
+
+    .review-text {
+      font-size: 0.9rem;
+      color: #374151;
+      line-height: 1.7;
+      margin-bottom: 1.2rem;
+      font-style: italic;
+    }
+
+    .review-author {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .author-avatar {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: var(--navy);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 0.9rem;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .author-name { font-weight: 600; font-size: 0.9rem; color: var(--navy-dark); }
+    .author-city { font-size: 0.78rem; color: var(--gray); }
+
+    /* CTA FINAL */
+    .cta-final {
+      background: linear-gradient(135deg, var(--navy-dark), var(--navy));
+      text-align: center;
+    }
+
+    .cta-final h2 {
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 1rem;
+    }
+
+    .cta-final p {
+      color: rgba(255,255,255,0.75);
+      font-size: 1.05rem;
+      margin-bottom: 2.5rem;
+      max-width: 520px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.7;
+    }
+
+    .whatsapp-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.7rem;
+      background: #22c55e;
+      color: white;
+      font-weight: 700;
+      font-size: 1.1rem;
+      padding: 1.1rem 2.5rem;
+      border-radius: 10px;
+      text-decoration: none;
+      box-shadow: 0 6px 30px rgba(34,197,94,0.4);
+      transition: all 0.2s;
+    }
+    .whatsapp-btn:hover { background: #16a34a; transform: translateY(-3px); box-shadow: 0 10px 35px rgba(34,197,94,0.5); }
+    .whatsapp-btn svg { width: 26px; height: 26px; fill: white; }
+
+    .cta-note { margin-top: 1rem; font-size: 0.82rem; color: rgba(255,255,255,0.5); }
+
+    /* FOOTER */
+    footer {
+      background: var(--navy-dark);
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding: 2.5rem 2rem;
+      text-align: center;
+    }
+
+    footer img { height: 40px; margin-bottom: 1rem; }
+
+    footer p { color: rgba(255,255,255,0.45); font-size: 0.82rem; }
+
+    /* WHATSAPP FLOAT */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      z-index: 200;
+      width: 60px; height: 60px;
+      background: #22c55e;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 20px rgba(34,197,94,0.5);
+      transition: transform 0.2s, box-shadow 0.2s;
+      text-decoration: none;
+    }
+    .whatsapp-float:hover { transform: scale(1.1); box-shadow: 0 6px 28px rgba(34,197,94,0.6); }
+    .whatsapp-float svg { width: 30px; height: 30px; fill: white; }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .gallery-grid { grid-template-columns: 1fr; }
+      .gallery-grid .main-img { grid-column: 1; }
+      .hero-stats { gap: 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-logo">
+      <img src="/assets/grupo-giar-logo.jpg" alt="Grupo Giar">
+    </div>
+    <ul class="nav-links">
+      <li><a href="#servicos">Climatização</a></li>
+      <li><a href="#vrf">VRF</a></li>
+      <li><a href="#solar">Energia Solar</a></li>
+      <li><a href="#depoimentos">Depoimentos</a></li>
+      <li><a href="#contato">Contato</a></li>
+    </ul>
+    <a class="nav-cta" href="https://wa.me/5543998643854?text=Oi%20Gilson%2C%20quero%20um%20or%C3%A7amento!" target="_blank">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Orçamento Grátis
+    </a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-badge">⚡ Instalação Profissional com Garantia</div>
+      <h1>Climatização e <span>Energia Solar</span> para seu espaço</h1>
+      <p>Instalação e manutenção de sistemas de ar condicionado Inverter Split, VRF e placas solares fotovoltaicas para residências, escritórios, restaurantes e comércio. Do conforto térmico à geração de energia limpa.</p>
+      <div class="hero-btns">
+        <a class="btn-primary" href="https://wa.me/5543998643854?text=Oi%20Gilson%2C%20quero%20um%20or%C3%A7amento%20de%20ar%20condicionado!" target="_blank">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Pedir Orçamento Agora
+        </a>
+        <a class="btn-outline" href="#servicos">Ver Serviços</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat">
+          <div class="stat-num">500+</div>
+          <div class="stat-label">Instalações Feitas</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">10+</div>
+          <div class="stat-label">Anos de Experiência</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">100%</div>
+          <div class="stat-label">Satisfação Garantida</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIFERENCIAIS -->
+  <section class="diferenciais">
+    <div class="container">
+      <span class="section-tag">Por que nos escolher</span>
+      <h2 class="section-title">Qualidade do início ao fim</h2>
+      <p class="section-sub">Trabalhamos com os melhores equipamentos do mercado e garantimos uma instalação limpa, segura e duradoura.</p>
+      <div class="cards-grid">
+        <div class="card">
+          <div class="card-icon">⚡</div>
+          <h3>Instalação Rápida</h3>
+          <p>Agendamos e concluímos a instalação no mesmo dia. Sem enrolação, sem sujeira, sem surpresa.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🛡️</div>
+          <h3>Garantia no Serviço</h3>
+          <p>Todo serviço tem garantia de mão de obra. Se tiver qualquer problema, a gente volta e resolve.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🌡️</div>
+          <h3>Split Inverter K7</h3>
+          <p>Trabalhamos com equipamentos Split Inverter de 12.000 a 60.000 BTUs. Mais economia de energia.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">📞</div>
+          <h3>Suporte Contínuo</h3>
+          <p>Atendimento direto com Gilson via WhatsApp. Resposta rápida para orçamentos e manutenção.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVIÇOS -->
+  <section id="servicos">
+    <div class="container">
+      <span class="section-tag">Nossos Serviços</span>
+      <h2 class="section-title">Atendemos todos os ambientes</h2>
+      <p class="section-sub">Da casa ao restaurante, do escritório ao comércio. Instalação e manutenção com qualidade profissional.</p>
+      <div class="servicos-grid">
+        <div class="servico-card">
+          <img class="servico-img" src="/assets/manutencao-sala.jpg" alt="Manutenção de ar condicionado residencial">
+          <div class="servico-body">
+            <div class="servico-tag">Instalação Profissional</div>
+            <h3>Casas e Apartamentos</h3>
+            <p>Instalação de Split Inverter com infraestrutura completa. Sala, quartos, ambientes integrados. Conforto térmico para toda a família.</p>
+          </div>
+        </div>
+        <div class="servico-card">
+          <img class="servico-img" src="/assets/higgsfield-escritorio.png" alt="Ar condicionado para escritório">
+          <div class="servico-body">
+            <div class="servico-tag">Comercial & Escritórios</div>
+            <h3>Empresas e Escritórios</h3>
+            <p>Climatização de ambientes corporativos com foco em eficiência energética. Ambiente agradável aumenta a produtividade da equipe.</p>
+          </div>
+        </div>
+        <div class="servico-card">
+          <img class="servico-img" src="/assets/higgsfield-restaurante.png" alt="Ar condicionado para restaurante">
+          <div class="servico-body">
+            <div class="servico-tag">Restaurantes & Comércio</div>
+            <h3>Restaurantes e Lojas</h3>
+            <p>Projetos de climatização para espaços com alto fluxo de pessoas. Equipamentos de alta capacidade para máximo conforto dos clientes.</p>
+          </div>
+        </div>
+        <div class="servico-card">
+          <img class="servico-img" src="/assets/higgsfield-escritorio.png" alt="Sistema VRF industrial">
+          <div class="servico-body">
+            <div class="servico-tag">VRF — Todas as Marcas</div>
+            <h3>Instalação e Manutenção de VRF</h3>
+            <p>Sistemas Variable Refrigerant Flow para grandes ambientes. Instalação, comissionamento e manutenção preventiva e corretiva de todas as marcas.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VRF -->
+  <section id="vrf" style="background: linear-gradient(135deg, #0d1f3c 0%, #1a3a6e 100%); padding: 5rem 2rem;">
+    <div class="container">
+      <span class="section-tag" style="background:rgba(59,130,246,0.2);color:#93c5fd;">Variable Refrigerant Flow</span>
+      <h2 class="section-title" style="color:#fff;">Instalação e Manutenção de VRF de Todas as Marcas</h2>
+      <p class="section-sub" style="color:rgba(255,255,255,0.7);max-width:640px;">Sistemas VRF são a solução de climatização mais eficiente para ambientes de médio e grande porte — hotéis, hospitais, edifícios corporativos, shoppings e indústrias. Trabalhamos com todas as marcas do mercado.</p>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;margin-bottom:3rem;">
+        <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-left:3px solid #3b82f6;border-radius:10px;padding:1.4rem 1.6rem;">
+          <div style="font-size:1.6rem;margin-bottom:0.6rem;">🔧</div>
+          <div style="font-size:0.72rem;color:#93c5fd;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:0.4rem;">Instalação Completa</div>
+          <div style="font-size:0.9rem;color:rgba(255,255,255,0.82);line-height:1.6;">Projeto, cabeamento, tubulação de cobre, comissionamento e testes de performance. Entrega com tudo funcionando.</div>
+        </div>
+        <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-left:3px solid #3b82f6;border-radius:10px;padding:1.4rem 1.6rem;">
+          <div style="font-size:1.6rem;margin-bottom:0.6rem;">🛡️</div>
+          <div style="font-size:0.72rem;color:#93c5fd;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:0.4rem;">Manutenção Preventiva</div>
+          <div style="font-size:0.9rem;color:rgba(255,255,255,0.82);line-height:1.6;">Limpeza, verificação de gás, inspeção de componentes e relatório técnico. Evite paradas não planejadas.</div>
+        </div>
+        <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-left:3px solid #3b82f6;border-radius:10px;padding:1.4rem 1.6rem;">
+          <div style="font-size:1.6rem;margin-bottom:0.6rem;">⚡</div>
+          <div style="font-size:0.72rem;color:#93c5fd;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:0.4rem;">Manutenção Corretiva</div>
+          <div style="font-size:0.9rem;color:rgba(255,255,255,0.82);line-height:1.6;">Diagnóstico de falhas, substituição de peças e reparo de unidades internas e externas. Atendimento rápido.</div>
+        </div>
+        <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-left:3px solid #3b82f6;border-radius:10px;padding:1.4rem 1.6rem;">
+          <div style="font-size:1.6rem;margin-bottom:0.6rem;">🌡️</div>
+          <div style="font-size:0.72rem;color:#93c5fd;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:0.4rem;">Multi-zona</div>
+          <div style="font-size:0.9rem;color:rgba(255,255,255,0.82);line-height:1.6;">Uma única unidade externa, múltiplas unidades internas com controle independente de temperatura por ambiente.</div>
+        </div>
+      </div>
+
+      <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);border-radius:12px;padding:2rem;margin-bottom:2.5rem;">
+        <div style="font-size:0.78rem;color:#93c5fd;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:1.2rem;">Marcas atendidas</div>
+        <div style="display:flex;flex-wrap:wrap;gap:0.7rem;">
+          <span style="background:rgba(59,130,246,0.15);border:1px solid rgba(59,130,246,0.3);color:#bfdbfe;font-size:0.82rem;font-weight:600;padding:0.4rem 1rem;border-radius:6px;">Daikin</span>
+          <span style="background:rgba(59,130,246,0.15);border:1px solid rgba(59,130,246,0.3);color:#bfdbfe;font-size:0.82rem;font-weight:600;padding:0.4rem 1rem;border-radius:6px;">Mitsubishi Electric</span>
+          <span style="background:rgba(59,130,246,0.15);border:1px solid rgba(59,130,246,0.3);color:#bfdbfe;font-size:0.82rem;font-weight:600;padding:0.4rem 1rem;border-radius:6px;">LG</span>
+          <span style="background:rgba(59,130,246,0.15);border:1px solid rgba(59,130,246,0.3);color:#bfdbfe;font-size:0.82rem;font-weight:600;padding:0.4rem 1rem;border-radius:6px;">Samsung</span>
+          <span style="background:rgba(59,130,246,0.15);border:1px solid rgba(59,130,246,0.3);color:#bfdbfe;font-size:0.82rem;font-weight:600;padding:0.4rem 1rem;border-radius:6px;">Hitachi</span>
+          <span style="background:rgba(59,130,246,0.15);border:1px solid rgba(59,130,246,0.3);color:#bfdbfe;font-size:0.82rem;font-weight:600;padding:0.4rem 1rem;border-radius:6px;">Trane</span>
+          <span style="background:rgba(59,130,246,0.15);border:1px solid rgba(59,130,246,0.3);color:#bfdbfe;font-size:0.82rem;font-weight:600;padding:0.4rem 1rem;border-radius:6px;">Carrier</span>
+          <span style="background:rgba(59,130,246,0.15);border:1px solid rgba(59,130,246,0.3);color:#bfdbfe;font-size:0.82rem;font-weight:600;padding:0.4rem 1rem;border-radius:6px;">York</span>
+          <span style="background:rgba(59,130,246,0.15);border:1px solid rgba(59,130,246,0.3);color:#bfdbfe;font-size:0.82rem;font-weight:600;padding:0.4rem 1rem;border-radius:6px;">Gree</span>
+          <span style="background:rgba(59,130,246,0.15);border:1px solid rgba(59,130,246,0.3);color:#bfdbfe;font-size:0.82rem;font-weight:600;padding:0.4rem 1rem;border-radius:6px;">Midea</span>
+          <span style="background:rgba(59,130,246,0.15);border:1px solid rgba(59,130,246,0.3);color:#bfdbfe;font-size:0.82rem;font-weight:600;padding:0.4rem 1rem;border-radius:6px;">+ outras</span>
+        </div>
+      </div>
+
+      <!-- Galeria VRF -->
+      <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin-bottom:2.5rem;">
+        <img src="/assets/vrf-outdoor-unit.jpg" alt="Unidade externa VRF instalada" style="width:100%;height:240px;object-fit:cover;border-radius:10px;box-shadow:0 6px 24px rgba(0,0,0,0.4);">
+        <img src="/assets/vrf-indoor-cassette.jpg" alt="Cassetes VRF em teto comercial" style="width:100%;height:240px;object-fit:cover;border-radius:10px;box-shadow:0 6px 24px rgba(0,0,0,0.4);">
+        <img src="/assets/infraestrutura-cobre.jpg" alt="Infraestrutura de cobre organizada" style="width:100%;height:240px;object-fit:cover;border-radius:10px;box-shadow:0 6px 24px rgba(0,0,0,0.4);">
+        <img src="/assets/vrf-sala-comercial.jpg" alt="VRF em ambiente comercial" style="width:100%;height:240px;object-fit:cover;border-radius:10px;box-shadow:0 6px 24px rgba(0,0,0,0.4);">
+      </div>
+
+      <a class="btn-primary" href="https://wa.me/5543998643854?text=Oi%20Gilson%2C%20quero%20um%20or%C3%A7amento%20de%20VRF!" target="_blank" style="justify-content:center;display:inline-flex;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Solicitar Orçamento de VRF
+      </a>
+    </div>
+  </section>
+
+  <!-- ENERGIA SOLAR -->
+  <section id="solar" style="background: linear-gradient(135deg, #0f1c47 0%, #1a2e6e 100%); padding: 5rem 2rem;">
+    <div class="container">
+      <span class="section-tag" style="background:rgba(255,200,0,0.15);color:#fcd34d;">Energia Solar Fotovoltaica</span>
+      <h2 class="section-title" style="color:#fff;">Pare de pagar caro na conta de luz</h2>
+      <p class="section-sub" style="color:rgba(255,255,255,0.7);">Instalamos sistemas de energia solar fotovoltaica para residências. Energia limpa, economia real e retorno do investimento em poucos anos.</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;align-items:center;">
+        <div>
+          <img src="/assets/higgsfield-solar.png" alt="Instalação de placas solares" style="width:100%;border-radius:16px;box-shadow:0 12px 40px rgba(0,0,0,0.4);">
+        </div>
+        <div style="display:flex;flex-direction:column;gap:1.2rem;">
+          <div style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-left:3px solid #fcd34d;border-radius:8px;padding:1.2rem 1.5rem;">
+            <div style="font-size:0.72rem;color:#fcd34d;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:0.4rem;">Redução na conta</div>
+            <div style="font-size:0.9rem;color:rgba(255,255,255,0.85);line-height:1.6;">Economia de até 95% na conta de energia elétrica todos os meses.</div>
+          </div>
+          <div style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-left:3px solid #fcd34d;border-radius:8px;padding:1.2rem 1.5rem;">
+            <div style="font-size:0.72rem;color:#fcd34d;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:0.4rem;">Retorno do investimento</div>
+            <div style="font-size:0.9rem;color:rgba(255,255,255,0.85);line-height:1.6;">Payback médio de 3 a 5 anos. Os painéis duram mais de 25 anos.</div>
+          </div>
+          <div style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-left:3px solid #fcd34d;border-radius:8px;padding:1.2rem 1.5rem;">
+            <div style="font-size:0.72rem;color:#fcd34d;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:0.4rem;">Instalação completa</div>
+            <div style="font-size:0.9rem;color:rgba(255,255,255,0.85);line-height:1.6;">Projeto, homologação na concessionária, instalação e suporte pós-obra.</div>
+          </div>
+          <div style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-left:3px solid #fcd34d;border-radius:8px;padding:1.2rem 1.5rem;">
+            <div style="font-size:0.72rem;color:#fcd34d;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:0.4rem;">Energia limpa</div>
+            <div style="font-size:0.9rem;color:rgba(255,255,255,0.85);line-height:1.6;">Zero emissões, zero ruído. Contribua para o meio ambiente e valorize seu imóvel.</div>
+          </div>
+          <a class="btn-primary" href="https://wa.me/5543998643854?text=Oi%20Gilson%2C%20quero%20um%20or%C3%A7amento%20de%20energia%20solar!" target="_blank" style="margin-top:0.5rem;justify-content:center;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Orçamento de Energia Solar
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALERIA -->
+  <section id="galeria" class="galeria">
+    <div class="container">
+      <span class="section-tag" style="background:rgba(255,255,255,0.15);color:var(--ice);">Galeria</span>
+      <h2 class="section-title">Instalações realizadas</h2>
+      <p class="section-sub">Cada instalação é feita com cuidado e atenção aos detalhes. Infraestrutura organizada, equipamentos bem posicionados.</p>
+      <div class="gallery-grid">
+        <img class="gallery-img tall main-img" src="/assets/tecnico-giar.jpg" alt="Técnico Grupo Giar instalando condensadora">
+        <img class="gallery-img" src="/assets/manutencao-sala.jpg" alt="Manutenção de ar condicionado em sala">
+        <img class="gallery-img" src="/assets/instalacao-escritorio.jpg" alt="Instalação de split em escritório">
+        <img class="gallery-img" src="/assets/instalacao-comercial.jpg" alt="Instalação comercial com equipamento de segurança">
+      </div>
+    </div>
+  </section>
+
+  <!-- BTUs -->
+  <section class="btus">
+    <div class="container">
+      <span class="section-tag">Capacidades Disponíveis</span>
+      <h2 class="section-title">Do menor ao maior ambiente</h2>
+      <p class="section-sub">Trabalhamos com toda linha inverter K7, Split, VRF. Fazemos o dimensionamento técnico correto para o seu espaço.</p>
+      <div class="btus-grid">
+        <div class="btu-card">
+          <div class="btu-num">12.000</div>
+          <div class="btu-label">BTUs — Quartos pequenos</div>
+        </div>
+        <div class="btu-card">
+          <div class="btu-num">18.000</div>
+          <div class="btu-label">BTUs — Salas e quartos</div>
+        </div>
+        <div class="btu-card">
+          <div class="btu-num">24.000</div>
+          <div class="btu-label">BTUs — Ambientes médios</div>
+        </div>
+        <div class="btu-card">
+          <div class="btu-num">30.000</div>
+          <div class="btu-label">BTUs — Salas grandes</div>
+        </div>
+        <div class="btu-card">
+          <div class="btu-num">36.000</div>
+          <div class="btu-label">BTUs — Escritórios</div>
+        </div>
+        <div class="btu-card">
+          <div class="btu-num">48.000</div>
+          <div class="btu-label">BTUs — Comércio</div>
+        </div>
+        <div class="btu-card">
+          <div class="btu-num">60.000</div>
+          <div class="btu-label">BTUs — Restaurantes</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEPOIMENTOS -->
+  <section id="depoimentos" class="reviews">
+    <div class="container">
+      <span class="section-tag">Depoimentos</span>
+      <h2 class="section-title">O que nossos clientes dizem</h2>
+      <p class="section-sub">Mais de 500 clientes satisfeitos em toda a região. Confira o que eles falam sobre o nosso trabalho.</p>
+      <div class="reviews-grid">
+
+        <div class="review-card">
+          <div class="stars">★★★★★</div>
+          <p class="review-text">"Gilson foi super profissional. Chegou no horário, fez a instalação de dois splits em poucas horas e deixou tudo limpinho. O acabamento da infraestrutura ficou impecável. Recomendo demais!"</p>
+          <div class="review-author">
+            <div class="author-avatar">CM</div>
+            <div>
+              <div class="author-name">Carlos Mendes</div>
+              <div class="author-city">Londrina, PR</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="stars">★★★★★</div>
+          <p class="review-text">"Instalaram 4 splits no meu restaurante em um único dia. Equipe organizada, sem atrapalhar o funcionamento. Os equipamentos estão funcionando perfeitamente. Ótimo custo-benefício!"</p>
+          <div class="review-author">
+            <div class="author-avatar">AP</div>
+            <div>
+              <div class="author-name">Ana Paula Ferreira</div>
+              <div class="author-city">Cambé, PR</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="stars">★★★★★</div>
+          <p class="review-text">"Precisava de um ar para o meu escritório e o Gilson me atendeu rapidinho no WhatsApp. Orçamento justo, produto de qualidade e instalação perfeita. Minha equipe agradece!"</p>
+          <div class="review-author">
+            <div class="author-avatar">RS</div>
+            <div>
+              <div class="author-name">Ricardo Silva</div>
+              <div class="author-city">Rolândia, PR</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="stars">★★★★★</div>
+          <p class="review-text">"Contratei a manutenção do meu split que estava com problema. Resolveram na hora, explicaram tudo o que fizeram e ainda deram dicas de como cuidar melhor. Serviço excelente!"</p>
+          <div class="review-author">
+            <div class="author-avatar">MO</div>
+            <div>
+              <div class="author-name">Mariana Oliveira</div>
+              <div class="author-city">Londrina, PR</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="stars">★★★★★</div>
+          <p class="review-text">"Tenho uma loja no centro e precisava de ar com urgência pra temporada de calor. O Grupo Giar instalou em 24 horas. Infraestrutura impecável, resultado profissional. Muito satisfeito!"</p>
+          <div class="review-author">
+            <div class="author-avatar">FN</div>
+            <div>
+              <div class="author-name">Felipe Nunes</div>
+              <div class="author-city">Arapongas, PR</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="stars">★★★★★</div>
+          <p class="review-text">"Já é a terceira vez que chamo o Gilson. Instalou na minha casa, depois no meu consultório e agora na casa da minha mãe. Trabalho sempre caprichado e preço honesto. Não troco por ninguém!"</p>
+          <div class="review-author">
+            <div class="author-avatar">JL</div>
+            <div>
+              <div class="author-name">Juliana Lima</div>
+              <div class="author-city">Londrina, PR</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="stars">★★★★★</div>
+          <p class="review-text">"Excelente atendimento desde o primeiro contato. Me enviaram o orçamento detalhado, cumpriram prazo e preço. O split Inverter está economizando bastante na conta de luz. Super recomendo!"</p>
+          <div class="review-author">
+            <div class="author-avatar">TB</div>
+            <div>
+              <div class="author-name">Thiago Barbosa</div>
+              <div class="author-city">Ibiporã, PR</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="stars">★★★★★</div>
+          <p class="review-text">"Tive um problema no equipamento fora de hora e o Gilson me atendeu mesmo assim. Essa dedicação ao cliente é rara hoje em dia. Com certeza vou contratar novamente e já indiquei para amigos."</p>
+          <div class="review-author">
+            <div class="author-avatar">PR</div>
+            <div>
+              <div class="author-name">Patricia Rodrigues</div>
+              <div class="author-city">Londrina, PR</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="stars">★★★★★</div>
+          <p class="review-text">"Instalaram 2 splits de 24.000 BTUs na minha academia. Ambiente climatizado, clientes mais satisfeitos e treinos mais produtivos. Serviço rápido, limpo e com ótimo acabamento. Nota 10!"</p>
+          <div class="review-author">
+            <div class="author-avatar">DM</div>
+            <div>
+              <div class="author-name">Douglas Martins</div>
+              <div class="author-city">Cambé, PR</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="stars">★★★★★</div>
+          <p class="review-text">"Ótima empresa! Instalação profissional, com cuidado real com a obra e os móveis. O técnico foi educado, pontual e tirou todas as minhas dúvidas sobre o equipamento. Recomendo de olhos fechados!"</p>
+          <div class="review-author">
+            <div class="author-avatar">SC</div>
+            <div>
+              <div class="author-name">Sandra Costa</div>
+              <div class="author-city">Apucarana, PR</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section id="contato" class="cta-final">
+    <div class="container">
+      <h2>Pronto para climatizar seu espaço?</h2>
+      <p>Fale agora com o Gilson e receba um orçamento gratuito. Atendemos Londrina e toda a região. Resposta rápida no WhatsApp.</p>
+      <a class="whatsapp-btn" href="https://wa.me/5543998643854?text=Oi%20Gilson%2C%20quero%20um%20or%C3%A7amento%20de%20ar%20condicionado!" target="_blank">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+        Falar com Gilson no WhatsApp
+      </a>
+      <p class="cta-note">Orçamento 100% gratuito e sem compromisso</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <img src="/assets/grupo-giar-logo.jpg" alt="Grupo Giar">
+    <p>© 2026 Grupo Giar — Energia Solar & Climatização. Todos os direitos reservados.</p>
+    <p class="footer-legal">
+      <a href="#" onclick="abrirModal('privacidade'); return false;">Política de Privacidade</a>
+      &nbsp;·&nbsp;
+      <a href="#" onclick="abrirModal('cookies'); return false;">Política de Cookies</a>
+      &nbsp;·&nbsp;
+      <a href="#" onclick="abrirModal('termos'); return false;">Termos de Uso</a>
+    </p>
+    <p class="footer-lgpd">Em conformidade com a Lei nº 13.709/2018 — Lei Geral de Proteção de Dados (LGPD)</p>
+  </footer>
+
+  <!-- BANNER LGPD COOKIES -->
+  <div id="cookie-banner" style="display:none; position:fixed; bottom:0; left:0; right:0; z-index:9999; background:#0f1c47; color:#e8f4fd; padding:1.2rem 2rem; display:flex; align-items:center; justify-content:space-between; gap:1rem; flex-wrap:wrap; box-shadow:0 -4px 20px rgba(0,0,0,0.3);">
+    <p style="margin:0; font-size:0.9rem; flex:1; min-width:250px;">
+      Utilizamos cookies para melhorar sua experiência, analisar o tráfego e personalizar conteúdo, conforme nossa
+      <a href="#" onclick="abrirModal('cookies'); return false;" style="color:#93c5fd; text-decoration:underline;">Política de Cookies</a>
+      e a <strong>Lei nº 13.709/2018 (LGPD)</strong>. Você pode aceitar ou recusar o uso de cookies não essenciais.
+    </p>
+    <div style="display:flex; gap:0.75rem; flex-shrink:0;">
+      <button onclick="recusarCookies()" style="background:transparent; color:#93c5fd; border:1px solid #93c5fd; padding:0.5rem 1.2rem; border-radius:6px; cursor:pointer; font-size:0.85rem;">Recusar</button>
+      <button onclick="aceitarCookies()" style="background:#3b82f6; color:#fff; border:none; padding:0.5rem 1.4rem; border-radius:6px; cursor:pointer; font-size:0.85rem; font-weight:600;">Aceitar</button>
+    </div>
+  </div>
+
+  <!-- MODAIS LGPD -->
+  <div id="lgpd-overlay" onclick="fecharModal()" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.6); z-index:10000;"></div>
+
+  <div id="lgpd-modal" style="display:none; position:fixed; top:50%; left:50%; transform:translate(-50%,-50%); z-index:10001; background:#fff; border-radius:12px; max-width:720px; width:92%; max-height:80vh; overflow-y:auto; padding:2.5rem; box-shadow:0 20px 60px rgba(0,0,0,0.3);">
+    <button onclick="fecharModal()" style="position:absolute; top:1rem; right:1.2rem; background:none; border:none; font-size:1.5rem; cursor:pointer; color:#6b7280;">&times;</button>
+
+    <!-- POLÍTICA DE PRIVACIDADE -->
+    <div id="modal-privacidade" class="modal-content" style="display:none;">
+      <h2 style="color:#1a2e6e; margin-bottom:1.5rem; font-size:1.4rem;">Política de Privacidade</h2>
+      <p style="color:#6b7280; font-size:0.85rem; margin-bottom:1.5rem;">Última atualização: maio de 2026</p>
+
+      <h3>1. Quem somos</h3>
+      <p>O <strong>Grupo Giar</strong> é o controlador dos seus dados pessoais, com atuação em Londrina/PR e região. Dúvidas sobre esta política podem ser enviadas para o canal de atendimento indicado na seção 9.</p>
+
+      <h3>2. Quais dados coletamos</h3>
+      <p>Coletamos os seguintes dados quando você entra em contato conosco:</p>
+      <ul>
+        <li>Nome e sobrenome</li>
+        <li>Número de telefone / WhatsApp</li>
+        <li>Localização (cidade/bairro) para fins de orçamento</li>
+        <li>Dados de navegação: endereço IP, páginas visitadas, tempo de acesso (via cookies)</li>
+      </ul>
+
+      <h3>3. Para que usamos seus dados</h3>
+      <ul>
+        <li>Responder solicitações de orçamento e atendimento ao cliente</li>
+        <li>Enviar informações sobre produtos, serviços e promoções (mediante consentimento)</li>
+        <li>Melhorar a qualidade do nosso site e dos nossos serviços</li>
+        <li>Cumprir obrigações legais e contratuais</li>
+      </ul>
+
+      <h3>4. Base legal (art. 7º da LGPD)</h3>
+      <ul>
+        <li><strong>Consentimento</strong> — para envio de comunicações comerciais</li>
+        <li><strong>Execução de contrato</strong> — para prestação dos serviços contratados</li>
+        <li><strong>Legítimo interesse</strong> — para melhoria do atendimento e do site</li>
+        <li><strong>Cumprimento de obrigação legal</strong> — quando exigido por lei</li>
+      </ul>
+
+      <h3>5. Por quanto tempo guardamos seus dados</h3>
+      <p>Dados de contato: pelo prazo necessário ao atendimento mais até 5 anos (prazo prescricional civil). Dados de navegação (cookies): conforme prazos definidos na Política de Cookies.</p>
+
+      <h3>6. Compartilhamento de dados</h3>
+      <p>Não vendemos seus dados. Podemos compartilhá-los com:</p>
+      <ul>
+        <li>Prestadores de serviços tecnológicos (hospedagem, análise de tráfego) — sob contrato de confidencialidade</li>
+        <li>Autoridades públicas, quando exigido por lei</li>
+      </ul>
+
+      <h3>7. Seus direitos como titular (art. 18 da LGPD)</h3>
+      <p>Você tem direito a:</p>
+      <ul>
+        <li>Confirmar se tratamos seus dados</li>
+        <li>Acessar, corrigir ou atualizar seus dados</li>
+        <li>Solicitar a eliminação dos dados tratados com base em consentimento</li>
+        <li>Revogar o consentimento a qualquer momento</li>
+        <li>Solicitar portabilidade dos dados</li>
+        <li>Opor-se ao tratamento em caso de irregularidade</li>
+      </ul>
+      <p>Para exercer seus direitos, entre em contato pelo WhatsApp <strong>(43) 99864-3854</strong>.</p>
+
+      <h3>8. Segurança</h3>
+      <p>Adotamos medidas técnicas e organizacionais adequadas para proteger seus dados contra acesso não autorizado, perda ou alteração.</p>
+
+      <h3>9. Encarregado (DPO)</h3>
+      <p>Responsável pelo tratamento de dados: <strong>Gilson (Grupo Giar)</strong><br>
+      WhatsApp: (43) 99864-3854<br>
+      Localização: Londrina, PR — Brasil</p>
+
+      <h3>10. Alterações nesta política</h3>
+      <p>Reservamo-nos o direito de atualizar esta política. Alterações relevantes serão comunicadas no site com antecedência.</p>
+
+      <h3>11. Lei aplicável</h3>
+      <p>Esta política é regida pela Lei nº 13.709/2018 (LGPD) e demais normas da ANPD (Autoridade Nacional de Proteção de Dados).</p>
+    </div>
+
+    <!-- POLÍTICA DE COOKIES -->
+    <div id="modal-cookies" class="modal-content" style="display:none;">
+      <h2 style="color:#1a2e6e; margin-bottom:1.5rem; font-size:1.4rem;">Política de Cookies</h2>
+      <p style="color:#6b7280; font-size:0.85rem; margin-bottom:1.5rem;">Última atualização: maio de 2026</p>
+
+      <h3>O que são cookies</h3>
+      <p>Cookies são pequenos arquivos de texto armazenados no seu navegador quando você acessa um site. Eles permitem que o site reconheça seu dispositivo e lembre suas preferências.</p>
+
+      <h3>Cookies que utilizamos</h3>
+      <table style="width:100%; border-collapse:collapse; margin:1rem 0; font-size:0.9rem;">
+        <tr style="background:#f0f4ff;">
+          <th style="padding:0.6rem; text-align:left; border:1px solid #e2e8f0;">Tipo</th>
+          <th style="padding:0.6rem; text-align:left; border:1px solid #e2e8f0;">Finalidade</th>
+          <th style="padding:0.6rem; text-align:left; border:1px solid #e2e8f0;">Duração</th>
+        </tr>
+        <tr>
+          <td style="padding:0.6rem; border:1px solid #e2e8f0;"><strong>Essenciais</strong></td>
+          <td style="padding:0.6rem; border:1px solid #e2e8f0;">Funcionamento básico do site e preferências de cookies</td>
+          <td style="padding:0.6rem; border:1px solid #e2e8f0;">1 ano</td>
+        </tr>
+        <tr style="background:#fafafa;">
+          <td style="padding:0.6rem; border:1px solid #e2e8f0;"><strong>Analíticos</strong></td>
+          <td style="padding:0.6rem; border:1px solid #e2e8f0;">Análise de tráfego e comportamento de navegação (Google Analytics)</td>
+          <td style="padding:0.6rem; border:1px solid #e2e8f0;">26 meses</td>
+        </tr>
+        <tr>
+          <td style="padding:0.6rem; border:1px solid #e2e8f0;"><strong>Marketing</strong></td>
+          <td style="padding:0.6rem; border:1px solid #e2e8f0;">Personalização de anúncios e rastreamento de conversões</td>
+          <td style="padding:0.6rem; border:1px solid #e2e8f0;">90 dias</td>
+        </tr>
+      </table>
+
+      <h3>Como gerenciar cookies</h3>
+      <p>Você pode aceitar ou recusar cookies não essenciais através do banner exibido ao acessar o site. Também é possível configurar seu navegador para bloquear todos os cookies, mas isso pode afetar a funcionalidade do site.</p>
+
+      <h3>Revogação do consentimento</h3>
+      <p>Para revogar seu consentimento a qualquer momento, limpe os cookies do seu navegador ou entre em contato pelo WhatsApp <strong>(43) 99864-3854</strong>.</p>
+
+      <h3>Base legal</h3>
+      <p>O uso de cookies analíticos e de marketing é baseado no seu <strong>consentimento</strong> (art. 7º, I da LGPD). Cookies essenciais são utilizados com base no <strong>legítimo interesse</strong> (art. 7º, IX da LGPD).</p>
+    </div>
+
+    <!-- TERMOS DE USO -->
+    <div id="modal-termos" class="modal-content" style="display:none;">
+      <h2 style="color:#1a2e6e; margin-bottom:1.5rem; font-size:1.4rem;">Termos de Uso</h2>
+      <p style="color:#6b7280; font-size:0.85rem; margin-bottom:1.5rem;">Última atualização: maio de 2026</p>
+
+      <h3>1. Aceitação</h3>
+      <p>Ao acessar e utilizar este site, você concorda com estes Termos de Uso. Se não concordar, por favor não utilize o site.</p>
+
+      <h3>2. Sobre o site</h3>
+      <p>Este site é de propriedade do <strong>Grupo Giar</strong>, empresa especializada em climatização e energia solar, com sede em Londrina/PR. Nosso objetivo é apresentar nossos serviços e facilitar o contato com clientes.</p>
+
+      <h3>3. Uso permitido</h3>
+      <p>O site deve ser utilizado exclusivamente para fins lícitos e legítimos. É proibido:</p>
+      <ul>
+        <li>Reproduzir conteúdo sem autorização prévia</li>
+        <li>Utilizar o site para fins fraudulentos ou ilegais</li>
+        <li>Tentar acessar áreas restritas ou comprometer a segurança do sistema</li>
+        <li>Enviar informações falsas nos formulários de contato</li>
+      </ul>
+
+      <h3>4. Conteúdo</h3>
+      <p>As informações disponibilizadas neste site têm caráter informativo. O Grupo Giar não se responsabiliza por decisões tomadas com base exclusivamente no conteúdo do site sem consulta direta à nossa equipe.</p>
+
+      <h3>5. Propriedade intelectual</h3>
+      <p>Todo o conteúdo (textos, imagens, logotipos, design) é de propriedade do Grupo Giar ou licenciado por terceiros. Qualquer reprodução sem autorização expressa é proibida.</p>
+
+      <h3>6. Links externos</h3>
+      <p>Este site pode conter links para sites de terceiros. O Grupo Giar não se responsabiliza pelo conteúdo ou práticas de privacidade desses sites.</p>
+
+      <h3>7. Limitação de responsabilidade</h3>
+      <p>O Grupo Giar não garante a disponibilidade contínua do site e não se responsabiliza por danos decorrentes de interrupções técnicas, vírus ou erros de informação.</p>
+
+      <h3>8. Modificações</h3>
+      <p>Reservamo-nos o direito de alterar estes Termos a qualquer momento, sem aviso prévio. Recomendamos a leitura periódica desta página.</p>
+
+      <h3>9. Foro e lei aplicável</h3>
+      <p>Estes Termos são regidos pela legislação brasileira. Fica eleito o foro da Comarca de Londrina/PR para dirimir quaisquer disputas.</p>
+    </div>
+  </div>
+
+  <style>
+    .footer-legal { margin-top: 0.75rem; font-size: 0.85rem; }
+    .footer-legal a { color: #93c5fd; text-decoration: none; }
+    .footer-legal a:hover { text-decoration: underline; }
+    .footer-lgpd { margin-top: 0.5rem; font-size: 0.75rem; color: #9ca3af; }
+    #lgpd-modal h3 { color: #1a2e6e; margin: 1.5rem 0 0.5rem; font-size: 1rem; }
+    #lgpd-modal p, #lgpd-modal li { font-size: 0.9rem; color: #374151; line-height: 1.6; margin-bottom: 0.5rem; }
+    #lgpd-modal ul { padding-left: 1.4rem; margin-bottom: 0.5rem; }
+  </style>
+
+  <script>
+    function abrirModal(tipo) {
+      document.querySelectorAll('.modal-content').forEach(el => el.style.display = 'none');
+      document.getElementById('modal-' + tipo).style.display = 'block';
+      document.getElementById('lgpd-overlay').style.display = 'block';
+      document.getElementById('lgpd-modal').style.display = 'block';
+      document.body.style.overflow = 'hidden';
+    }
+    function fecharModal() {
+      document.getElementById('lgpd-overlay').style.display = 'none';
+      document.getElementById('lgpd-modal').style.display = 'none';
+      document.body.style.overflow = '';
+    }
+    function aceitarCookies() {
+      localStorage.setItem('lgpd_cookies', 'aceito');
+      document.getElementById('cookie-banner').style.display = 'none';
+    }
+    function recusarCookies() {
+      localStorage.setItem('lgpd_cookies', 'recusado');
+      document.getElementById('cookie-banner').style.display = 'none';
+    }
+    window.addEventListener('DOMContentLoaded', function() {
+      if (!localStorage.getItem('lgpd_cookies')) {
+        document.getElementById('cookie-banner').style.display = 'flex';
+      }
+    });
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') fecharModal();
+    });
+  </script>
+
+  <!-- WHATSAPP FLOAT -->
+  <a class="whatsapp-float" href="https://wa.me/5543998643854?text=Oi%20Gilson%2C%20quero%20um%20or%C3%A7amento!" target="_blank" title="Falar no WhatsApp">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+  </a>
+
+</body>
+</html>
